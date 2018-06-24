@@ -1,0 +1,57 @@
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <properties resource="config.properties"/>
+
+  <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+    <property name="beginningDelimiter" value="`"/>
+    <property name="endingDelimiter" value="`"/>
+    <!-- 生成的Java文件的编码-->
+    <property name="javaFileEncoding"
+      value="UTF-8"/>
+    <!-- 格式化java代码-->
+    <property name="javaFormatter"
+      value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+    <!-- 格式化XML代码-->
+    <property name="xmlFormatter"
+      value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+    <!-- generate entity时，生成hashcode和equals方法 -->
+    <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+    <!-- generate entity时，生成serialVersionUID -->
+    <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+    <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+    <!--下为通用mapper插件，普通mapper注释掉-->
+    <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+      <property name="mappers" value="com.zen.esc.framework.mybatiss.base.BaseMapper"/>
+    </plugin>
+    <commentGenerator type="com.zen.tools.mybatis.config.MyCommentGenerator">
+    </commentGenerator>
+    <!--<jdbcConnection driverClass="${mysql.jdbc.driverClass}"-->
+    <!--connectionURL="${mysql.jdbc.url}"-->
+    <!--userId="${mysql.jdbc.user}"-->
+    <!--password="${mysql.jdbc.password}">-->
+    <!--</jdbcConnection>-->
+    <jdbcConnection driverClass="${postgresql.jdbc.driverClass}"
+      connectionURL="${postgresql.jdbc.url}"
+      userId="${postgresql.jdbc.user}"
+      password="${postgresql.jdbc.password}">
+    </jdbcConnection>
+
+    <javaTypeResolver type="com.zen.tools.mybatis.config.MyJavaTypeResolver">
+      <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+    <javaModelGenerator targetPackage="com.zen.tools.mybatis.model"  targetProject="src/main/java"  >
+      <property name="rootClass" value="com.zen.tools.mybatis.config.BaseModel"/>
+    </javaModelGenerator>
+    <sqlMapGenerator targetPackage="mapper"
+      targetProject="src/main/resources"/>
+    <javaClientGenerator targetPackage="com.zen.tools.mybatis.mapper"
+      targetProject="src/main/java"
+      type="XMLMAPPER"/>
+
+    <table tableName="game_version_his">
+    </table>
+  </context>
+</generatorConfiguration>
