@@ -3,7 +3,6 @@
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-  <properties resource="config.properties"/>
 
   <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
     <property name="beginningDelimiter" value="`"/>
@@ -24,19 +23,19 @@
     <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
     <!--下为通用mapper插件，普通mapper注释掉-->
     <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-      <property name="mappers" value="com.zen.esc.framework.mybatiss.base.BaseMapper"/>
+      <property name="mappers" value="com.zen.esc.framework.mybatis.base.BaseMapper"/>
     </plugin>
     <commentGenerator type="com.zen.tools.mybatis.config.MyCommentGenerator">
     </commentGenerator>
-    <!--<jdbcConnection driverClass="${mysql.jdbc.driverClass}"-->
-    <!--connectionURL="${mysql.jdbc.url}"-->
-    <!--userId="${mysql.jdbc.user}"-->
-    <!--password="${mysql.jdbc.password}">-->
+    <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+    <!--connectionURL="jdbc:mysql://localhost:3306/security"-->
+    <!--userId="root"-->
+    <!--password="root">-->
     <!--</jdbcConnection>-->
-    <jdbcConnection driverClass="${postgresql.jdbc.driverClass}"
-      connectionURL="${postgresql.jdbc.url}"
-      userId="${postgresql.jdbc.user}"
-      password="${postgresql.jdbc.password}">
+    <jdbcConnection driverClass="org.postgresql.Driver"
+      connectionURL="jdbc:postgresql://localhost:5432/security"
+      userId="security"
+      password="security">
     </jdbcConnection>
 
     <javaTypeResolver type="com.zen.tools.mybatis.config.MyJavaTypeResolver">
@@ -51,7 +50,7 @@
       targetProject="src/main/java"
       type="XMLMAPPER"/>
 
-    <table tableName="game_version_his">
+    <table tableName="%">
     </table>
   </context>
 </generatorConfiguration>
