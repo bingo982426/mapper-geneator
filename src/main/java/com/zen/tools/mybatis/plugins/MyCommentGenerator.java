@@ -1,4 +1,4 @@
-package com.zen.tools.mybatis.config;
+package com.zen.tools.mybatis.plugins;
 
 import java.text.MessageFormat;
 import java.util.Properties;

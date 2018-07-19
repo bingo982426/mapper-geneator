@@ -26,9 +26,9 @@
     <spring.boot.version>1.5.14.RELEASE</spring.boot.version>
     <mybatis.version>1.3.2</mybatis.version>
     <postgresql.version>42.2.2</postgresql.version>
-    <mysql.version>6.0.6</mysql.version>
+    <mysql.version>5.1.46</mysql.version>
     <mapper.version>4.0.3</mapper.version>
-    <generator.version>1.3.6</generator.version>
+    <generator.version>1.3.7</generator.version>
   </properties>
 
   <dependencies>
